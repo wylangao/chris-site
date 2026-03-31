@@ -94,6 +94,19 @@ function Nav({ activeSection, onNav }) {
       background: BLUE, borderBottom: `4px solid ${ORANGE}`,
     }}>
       <div style={{
+        background: "rgba(0,0,0,0.3)", textAlign: "right",
+        padding: "4px 24px",
+        fontFamily: "'DM Sans', sans-serif", fontSize: 13,
+        color: "rgba(255,255,255,0.5)", letterSpacing: 1,
+      }}>
+        Website by{" "}
+        <a href="https://wylangao.me" target="_blank" rel="noopener noreferrer" style={{
+          color: ORANGE, textDecoration: "none", fontWeight: 600,
+        }}>
+          wylan<span style={{ color: ORANGE }}>gao</span>.me
+        </a>
+      </div>
+      <div style={{
         maxWidth: 1200, margin: "0 auto", padding: "0 24px",
         display: "flex", justifyContent: "space-between", alignItems: "center", height: 90,
       }}>
@@ -229,7 +242,7 @@ function Hero() {
             display: "flex", gap: 16, flexWrap: "wrap",
             animation: "fadeInUp 0.8s ease-out 1s both",
           }}>
-            <a href="#Vision" style={{
+            <a href="#About" style={{
               fontFamily: "'Anton', sans-serif", fontSize: 16,
               letterSpacing: "3px", textTransform: "uppercase",
               background: ORANGE, color: BLUE, padding: "16px 36px",
@@ -250,6 +263,17 @@ function Hero() {
               onMouseEnter={(e) => { e.target.style.borderColor = WHITE; e.target.style.background = "rgba(255,255,255,0.08)"; }}
               onMouseLeave={(e) => { e.target.style.borderColor = "rgba(255,255,255,0.3)"; e.target.style.background = "transparent"; }}>
               CONTACT
+            </a>
+            <a href="/resume.pdf" download="Christopher_Cumberbatch_Resume.pdf" style={{
+              fontFamily: "'Anton', sans-serif", fontSize: 16,
+              letterSpacing: "3px", textTransform: "uppercase",
+              background: "transparent", color: ORANGE, padding: "16px 36px",
+              border: `3px solid ${ORANGE}`,
+              textDecoration: "none", cursor: "pointer", transition: "all 0.2s",
+            }}
+              onMouseEnter={(e) => { e.target.style.background = ORANGE; e.target.style.color = BLUE; }}
+              onMouseLeave={(e) => { e.target.style.background = "transparent"; e.target.style.color = ORANGE; }}>
+              RESUME
             </a>
           </div>
         </div>
@@ -458,14 +482,14 @@ function Experience() {
 /* ── vision section ───────────────────────────── */
 function Vision() {
   const pillars = [
-    { icon: "⚖️", title: "Criminal Justice Reform",
-      text: "A justice system that serves everyone equally. Fair sentencing, adequate representation, and an end to practices that disproportionately harm Black and Brown communities." },
+    { icon: "⚖️", title: "Criminal Justice",
+      text: "A strong passion for criminal justice as a way to protect people from harm." },
     { icon: "🎓", title: "Education & Access",
       text: "I know the difference opportunity makes. Every student deserves a path regardless of their zip code or family income." },
     { icon: "🎖️", title: "Veterans & Service",
-      text: "Robust mental health resources, fair benefits, and seamless civilian transitions for every service member who raised their hand." },
+      text: "I worked with Hoefer Law Firm to get Veterans their benefits after they had retired. Everyone who has served our country deserves to retire with dignity." },
     { icon: "🏘️", title: "Community Investment",
-      text: "Strong communities built on trust, infrastructure, and economic opportunity — powered by the people who know their neighborhoods best." },
+      text: "Not just volunteer hours. New infrastructure and public transportation breathe life and new opportunities into a city." },
   ];
 
   return (
@@ -559,26 +583,32 @@ function Quote() {
 function Contact() {
   return (
     <section id="Contact" style={{ background: CREAM, padding: "100px 24px" }}>
-      <div style={{ maxWidth: 650, margin: "0 auto", textAlign: "center" }}>
-        <div style={{
-          fontFamily: "'Anton', sans-serif", fontSize: 14, letterSpacing: 5,
-          textTransform: "uppercase", color: ORANGE, marginBottom: 12,
-        }}>
-          JOIN THE MOVEMENT
+      <div style={{ maxWidth: 900, margin: "0 auto", textAlign: "center" }}>
+        {/* Resume embed */}
+        <div style={{ marginBottom: 48, textAlign: "left" }}>
+          <div style={{
+            fontFamily: "'Anton', sans-serif", fontSize: 14, letterSpacing: 5,
+            textTransform: "uppercase", color: ORANGE, marginBottom: 16, textAlign: "center",
+          }}>
+            MY RESUME
+          </div>
+          <iframe
+            src="/resume.pdf"
+            style={{ width: "100%", height: 600, border: `2px solid ${BLUE}`, borderRadius: 4 }}
+            title="Christopher Cumberbatch Resume"
+          />
+          <div style={{ textAlign: "center", marginTop: 16 }}>
+            <a href="/resume.pdf" download="Christopher_Cumberbatch_Resume.pdf" style={{
+              fontFamily: "'Anton', sans-serif", fontSize: 14,
+              letterSpacing: 3, textTransform: "uppercase",
+              background: ORANGE, color: BLUE, padding: "12px 32px",
+              textDecoration: "none", cursor: "pointer", display: "inline-block",
+            }}>
+              DOWNLOAD RESUME
+            </a>
+          </div>
         </div>
-        <h2 style={{
-          fontFamily: "'Anton', sans-serif", fontSize: "clamp(36px, 6vw, 60px)",
-          color: BLUE, lineHeight: 1.05, margin: "0 0 20px", textTransform: "uppercase",
-        }}>
-          LET'S BUILD{" "}
-          <span style={{ color: ORANGE }}>SOMETHING BETTER</span>
-        </h2>
-        <p style={{
-          fontFamily: "'DM Sans', sans-serif", fontSize: 17, lineHeight: 1.75,
-          color: "#666", margin: "0 0 40px",
-        }}>
-          Whether you want to connect, collaborate, or just talk about justice, debate, or Dungeons & Dragons — I'd love to hear from you.
-        </p>
+
         <div style={{ display: "flex", flexDirection: "column", gap: 16, alignItems: "center" }}>
           <a href="mailto:chriscu555@gmail.com" style={{
             fontFamily: "'Anton', sans-serif", fontSize: 16,
@@ -609,11 +639,15 @@ function Contact() {
 function Media() {
   const [lightbox, setLightbox] = useState(null);
   const items = [
-    { type: "image", src: "/group.jpg",     label: "Black Law Student Association", colSpan: 2, rowSpan: 2 },
-    { type: "image", src: "/chris.jpg",     label: "Christopher",  colSpan: 1, rowSpan: 1 },
-    { type: "image", src: "/aboutchris.png",label: "About Chris",  colSpan: 1, rowSpan: 1 },
-    { type: "video", src: "/snapfarm.mp4",  label: "Helping the Community", colSpan: 2, rowSpan: 2 },
-    { type: "image", src: "/farmfriends.jpg",    label: "Farm Friends",    colSpan: 2, rowSpan: 1 },
+    { type: "image", src: "/group.jpg",          label: "Black Law Student Association", colSpan: 2, rowSpan: 2 },
+    { type: "image", src: "/chris.jpg",          label: "Christopher",                  colSpan: 1, rowSpan: 1 },
+    { type: "image", src: "/aboutchris.png",     label: "About Chris",                  colSpan: 1, rowSpan: 1 },
+    { type: "video", src: "/snapfarm.mp4",       label: "Helping the Community",        colSpan: 2, rowSpan: 2 },
+    { type: "image", src: "/farmfriends.jpg",    label: "Farm Friends",                 colSpan: 2, rowSpan: 1 },
+    { type: "image", src: "/family.jpg",         label: "Family",                       colSpan: 1, rowSpan: 1 },
+    { type: "image", src: "/jdmilitary.jpg",     label: "JD & Military",                colSpan: 1, rowSpan: 1 },
+    { type: "image", src: "/legalinternship.jpg",label: "Legal Internship",             colSpan: 2, rowSpan: 1 },
+    { type: "image", src: "/merrychristmas.jpg", label: "Merry Christmas",              colSpan: 1, rowSpan: 1 },
   ];
 
   useEffect(() => {
