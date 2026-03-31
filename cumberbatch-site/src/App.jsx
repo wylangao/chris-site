@@ -327,15 +327,11 @@ function About() {
           </div>
 
           {/* text */}
-          <div style={{
-            flex: "1 1 280px",
-            display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 32,
-          }}>
+          <div style={{ flex: "1 1 280px", display: "flex", flexDirection: "column", gap: 24 }}>
             {[
-              "I am a full-time 2L law student at the University of Iowa College of Law and a 2nd Lieutenant in the Iowa Army National Guard. As an African American, I understand the barriers that systemic inequity creates — and I'm committed to tearing them down.",
-              "I aspire to work in Washington, D.C. as a criminal lawyer, fighting for a justice system that lives up to its ideals. My military service taught me discipline, leadership, and the weight of responsibility. My legal training is sharpening those values into tools for lasting change.",
-              "I am passionate about justice, debate, and hearing different perspectives. I run the University of Iowa Debate Club to teach argument and rhetoric, serve as Secretary of the Black Law Student Association, and box to stay sharp.",
-              "In my quiet hours, I write fantasy stories and DM Dungeons & Dragons campaigns — because even advocates for justice need a world where anything is possible."
+              "My parents immigrated from the Caribbean, and instilled in me a pride in being American, a strong sense of justice, and empathy for others. Growing up, I lived in 8 different states, ranging from Seattle Washington, to Virginia, all the way to Texas, before finding a home in Iowa. I've had to learn how to make friends and work with people from every walk of life.",
+              "Moving so much has led me to place the highest emphasis on community. To help out and leave a lasting impact on where I live and the people around me. The best way of doing this, to me, is volunteering to help in community projects and protecting the people from those who would do them harm as a criminal lawyer.",
+              "I enlisted at 19 in the army as a combat engineer to give back to the country that has given me so much. Today, I continue my service in the Iowa National Guard and lead soldiers as an officer. The army has given me the intense work ethic that has gotten me to where I am today, and is where I have found my greatest mentors. I look forward to continuing to serve this country and represent my community."
             ].map((text, i) => (
               <p key={i} style={{
                 fontFamily: "'DM Sans', sans-serif", fontSize: 16,
